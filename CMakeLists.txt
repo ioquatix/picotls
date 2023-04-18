@@ -172,6 +172,10 @@ IF (WITH_FUSION)
     SET(TEST_EXES ${TEST_EXES} test-fusion.t)
 
     LIST(APPEND PTLSBENCH_LIBS picotls-fusion)
+    
+    INSTALL(
+        TARGETS picotls-fusion
+    )
 ENDIF ()
 
 ADD_EXECUTABLE(ptlsbench t/ptlsbench.c)
@@ -232,7 +236,7 @@ IF (BUILD_FUZZER)
 ENDIF()
 
 INSTALL(
-    TARGETS picotls-core picotls-openssl picotls-minicrypto picotls-fusion
+    TARGETS picotls-core picotls-openssl picotls-minicrypto
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
